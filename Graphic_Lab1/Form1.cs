@@ -13,6 +13,10 @@ namespace Graphic_Lab1
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            Pen RedPen = new Pen(Brushes.Red);
+            RedPen.Width = 4;
+            Pen GreenPen = new Pen(Brushes.Green);
+            GreenPen.Width = 4;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             int xOrigem = ClientRectangle.Width / 2;
             int yOrigem = ClientRectangle.Height / 2;
@@ -40,15 +44,15 @@ namespace Graphic_Lab1
                         {
                             for (int i = 1; i < 3; i++)
                             {
-                                g.DrawLine(Pens.Red, points1[i], points1[i - 1]);
+                                g.DrawLine(RedPen, points1[i], points1[i - 1]);
                             }
-                            g.DrawLine(Pens.Red, points1[0], points1[2]);
+                            g.DrawLine(RedPen, points1[0], points1[2]);
                         }
                     }
                 }
                 else
                 {
-                   g.DrawLine(Pens.Red, points1[0], points1[1]);
+                   g.DrawLine(RedPen, points1[0], points1[1]);
 
                 }
             }
@@ -63,7 +67,7 @@ namespace Graphic_Lab1
                 {
                     x1 = p1 * (points1[0].X - xOrigem) + p3 * (yOrigem - points1[0].Y);
                     y1 = p2 * (points1[0].X - xOrigem) + p4 * (yOrigem - points1[0].Y);
-                    g.FillRectangle(new SolidBrush(Color.Red), x1 + xOrigem, yOrigem - y1, 3, 3);
+                    g.FillRectangle(new SolidBrush(Color.Green), x1 + xOrigem, yOrigem - y1, 3, 3);
                 }
                 else if(points1.Length == 2) 
                 {
@@ -73,7 +77,7 @@ namespace Graphic_Lab1
                     y2 = p2 * (points1[1].X - xOrigem) + p4 * (yOrigem - points1[1].Y);
                     Point point3 = new Point(xOrigem + x1, yOrigem - y1);
                     Point point4 = new Point(xOrigem + x2, yOrigem - y2);
-                    g.DrawLine(Pens.Red, point3, point4);
+                    g.DrawLine(GreenPen, point3, point4);
                 }
                 else
                 {
@@ -86,9 +90,9 @@ namespace Graphic_Lab1
                     Point point5 = new Point(xOrigem + x1, yOrigem - y1);
                     Point point6 = new Point(xOrigem + x2, yOrigem - y2);
                     Point point7 = new Point(xOrigem + x3, yOrigem - y3);
-                    g.DrawLine(Pens.Red, point5, point6);
-                    g.DrawLine(Pens.Red, point6, point7);
-                    g.DrawLine(Pens.Red, point5, point7);
+                    g.DrawLine(GreenPen, point5, point6);
+                    g.DrawLine(GreenPen, point6, point7);
+                    g.DrawLine(GreenPen, point5, point7);
                 }
             }
         }
